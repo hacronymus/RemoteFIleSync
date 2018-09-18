@@ -25,7 +25,7 @@ public class FFS
 
         for (int i = 0; i < arguments.Length; i++)
         {
-            names[i] = arguments[i].Split('.')[0];
+            names[i] = arguments[i].Split('.')[1].TrimStart('\\');
         }
 
         return names;
