@@ -13,14 +13,17 @@ public class FFS
 
     public FFS()
 	{
-        arguments = Directory.GetFiles(".\\", "*batch"); //replace with array of existing batch files in folder
-	    names = arguments;
+        arguments = Directory.GetFiles(".\\", "*batch"); 
+	    names = Directory.GetFiles(".\\", "*batch");
 
 	    for (int i = 0; i < arguments.Length; i++)
 	    {
-	        names[i] = i + " " + arguments[i].Split('.')[1].TrimStart('\\');
+	        names[i] = names[i].Split('.')[1];
+	        names[i] = i + " " +  names[i].TrimStart('\\');
+
 	    }
-    }
+
+	}
 
     public string[] Arguments {
         get { return arguments; }
