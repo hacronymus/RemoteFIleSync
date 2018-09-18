@@ -46,12 +46,23 @@ namespace RemoteFileSync
                     TcpClient client = server.AcceptTcpClient();
                     Console.WriteLine("Connected!");
 
+                    
+
                     data = null;
                     retMessage = null;
 
                     // Get a stream object for reading and writing
                     NetworkStream stream = client.GetStream();
 
+                    int j = 0;
+
+                    foreach (var name in FFSList.Names)
+                    {
+                        byte[] msg = System.Text.Encoding.ASCII.GetBytes("\n" + name);
+                        stream.Write(msg, 0, msg.Length);
+
+                        j++;
+                    }
                     int i;
 
                     // Loop to receive all the data sent by the client.

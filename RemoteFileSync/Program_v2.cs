@@ -22,7 +22,7 @@ namespace RemoteFileSync
 
             Console.WriteLine("RemoteFileSync {0}",version);
             Console.WriteLine("Available syncs:");
-            foreach (string name in FFSList.Names())
+            foreach (string name in FFSList.Names)
             {
                 Console.WriteLine(name);
             }
