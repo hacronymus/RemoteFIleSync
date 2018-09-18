@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 using System.Net;
-
+using System.Reflection;
 
 
 namespace RemoteFileSync
@@ -18,8 +18,14 @@ namespace RemoteFileSync
             IPAddress address = IPAddress.Parse("127.0.0.1");
             Int32 port = 0;
             FFS FFSList = new FFS();
+            string version = Assembly.GetExecutingAssembly().GetName().Version.ToString();
 
-            Console.Write("RemoteFileSync v1.1");
+            Console.WriteLine("RemoteFileSync {0}",version);
+            Console.WriteLine("Available syncs:");
+            foreach (string name in FFSList.Names)
+            {
+                Console.WriteLine(name);
+            }
 
             if (args.Length == 2)
             {
@@ -34,12 +40,12 @@ namespace RemoteFileSync
                 test2 = Int32.TryParse(args[1], out port);
 
                 if (test && test2)
-                    TCPclass.TCPListener(address, port, FFSList);
+                    TCPclass.TCPListener(address, port, FFSList); //run tcp application if both are true
                 else
                 {
                     UserInteract();
                 }
-                //run tcp application if both are true
+                
             }
             else
             {
