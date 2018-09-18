@@ -18,8 +18,8 @@ namespace RemoteFileSync
             IPAddress address = IPAddress.Parse("127.0.0.1");
             Int32 port = 0;
             FFS FFSList = new FFS();
-            
 
+            Console.Write("RemoteFileSync v1.1");
 
             if (args.Length == 2)
             {
