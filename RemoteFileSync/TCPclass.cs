@@ -83,6 +83,7 @@ namespace RemoteFileSync
                         stream.Write(msg, 0, msg.Length);
                         Console.WriteLine("Sent: {0}", data);
 
+                        
 
                         string[] dataSplit = data.Split(',');
                         string command = dataSplit[0];
