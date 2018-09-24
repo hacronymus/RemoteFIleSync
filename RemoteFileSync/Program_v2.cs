@@ -92,7 +92,7 @@ namespace RemoteFileSync
                     case "local":
 
                         //run local application
-
+                        Console.WriteLine(ffsList.RunFFS(1));
                         break;
 
                     case "exit":

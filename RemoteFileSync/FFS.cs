@@ -56,6 +56,19 @@ public class FFS
         {
             Process proc = Process.Start(program, arguments[choice]);
 
+            
+
+            for (int i = 0; i < 6; i++){
+
+                System.Threading.Thread.Sleep(1000);
+
+                var title = proc.MainWindowTitle;
+
+                Console.WriteLine("Title:" + title);
+                Console.WriteLine(proc.MachineName);
+
+            }
+
             proc.WaitForExit();
             //possibly use OnExited() instead to call an exit event
             //use proc.exitCode to process if there were errors (might not be correct)
@@ -64,4 +77,6 @@ public class FFS
 
 
     }
+
+    public 
 }
